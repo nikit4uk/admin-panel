@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import styles from '../styles/aPanel.module.scss';
 
-export default function BlockTitlesWrap({titles, blockTitle, objIdx}) {
+export default function BlockTitlesWrap({titles, blockTitle, objIdx} : {titles:any, blockTitle:string, objIdx:number}) {
     const [BlockTitle, setBlockTitle] = useState('');
     const [BlockSubtitle, setBlockSubtitle] = useState('');
     const [BlockText1, setBlockText1] = useState('');
@@ -29,23 +29,6 @@ export default function BlockTitlesWrap({titles, blockTitle, objIdx}) {
             }
         }
     },[])
-
-    // const saveBlock = () => {
-    //     fetch('/api/change-titles', {
-    //         method: 'POST',
-    //         mode: 'cors',
-    //         body: JSON.stringify({
-    //             title: BlockTitle,
-    //             subtitle: BlockSubtitle,
-    //             text1: BlockText1,
-    //             text2: BlockText2,
-    //             btn: BlockBtn,
-    //         })
-    //     })
-    //     .then( (res) => res.json() )
-    //     .then( res => console.log(res))
-    //     .catch( err  => console.log(err))
-    // }
 
     const saveBlock = (blockTitle) => {
         const collection = "Titles";
