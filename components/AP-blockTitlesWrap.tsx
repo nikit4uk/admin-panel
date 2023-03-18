@@ -31,8 +31,8 @@ export default function BlockTitlesWrap({titles, blockTitle, objIdx} : {titles:a
     },[])
 
     const saveBlock = (blockTitle:any) => {
-        const collection = "Titles";
-        const filter = { block: blockTitle };
+        const collection:string = "Titles";
+        const filter:object = { block: blockTitle };
         const filterStr = encodeURIComponent(JSON.stringify(filter));
         const url = `/api/change-titles?collection=${collection}&filter=${filterStr}`;
       

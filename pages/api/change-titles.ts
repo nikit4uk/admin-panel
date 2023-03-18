@@ -5,38 +5,46 @@
 //     req: NextApiRequest,
 //     res: NextApiResponse
 // ) {
-//     let { db } = await connectToDatabase();
-//     let body = JSON.parse( req.body);
+//     const { collection, filter } = req.query;
+//     const body = JSON.parse(req.body);
 
-//     const titlesMain = await db.collection('Titles').updateOne(
-//         { "block" : "Main" },
-//         { $set: {
-//             "title": body.title,
-//             "subtitle": body.subtitle,
-//             "text1": body.text1,
-//             "text2": body.text2,
-//             "btn": body.btn,
-//         }}
+//     const { db } = await connectToDatabase();
+//     const result = await db.collection(collection).updateOne(
+//         JSON.parse(filter),
+//         { $set: body }
 //     );
-
-//     res.status(200).json({ titlesMain });
+//     res.status(200).json({ result });
 // }
 
 import { NextApiRequest, NextApiResponse } from 'next';
 import { connectToDatabase } from '@/lib/mongodb';
 
+interface UpdateResult {
+    matchedCount: number;
+    modifiedCount: number;
+    upsertedCount?: number;
+    upsertedId?: {
+        _id: string;
+    };
+}
+
 export default async function handler(
     req: NextApiRequest,
-    res: NextApiResponse
+    res: NextApiResponse<UpdateResult>
 ) {
     const { collection, filter } = req.query;
     const body = JSON.parse(req.body);
+
+    if (typeof collection !== 'string' || typeof filter !== 'string') {
+        res.status(400).json({ message: 'Invalid request' });
+        return;
+    }
 
     const { db } = await connectToDatabase();
     const result = await db.collection(collection).updateOne(
         JSON.parse(filter),
         { $set: body }
     );
+
     res.status(200).json({ result });
 }
-
