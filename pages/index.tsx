@@ -16,11 +16,11 @@ export default function Home({ header, titles, footer } : {header:any, titles:an
 }
 
 export async function getStaticProps() {
-  const headerResponce = await fetch(`http://localhost:3000/api/header`)
+  const headerResponce = await fetch(`http://admin-panel-three-delta.vercel.app/api/header`)
   const header = await headerResponce.json()
-  const titleResponce = await fetch(`http://localhost:3000/api/titles`)
+  const titleResponce = await fetch(`http://admin-panel-three-delta.vercel.app/api/titles`)
   const titles = await titleResponce.json()
-  const footerResponce = await fetch(`http://localhost:3000/api/footer`)
+  const footerResponce = await fetch(`http://admin-panel-three-delta.vercel.app/api/footer`)
   const footer = await footerResponce.json()
   return {
     props: { header, titles, footer },
