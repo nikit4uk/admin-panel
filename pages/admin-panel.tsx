@@ -35,11 +35,11 @@ export default function Login({ header, titles, footer } : {header: any, titles:
 }
 
 export async function getStaticProps() {
-    const headerResponce = await fetch(`${process.env.API_URL}/header`)
+    const headerResponce = await fetch(`http://localhost:3000/api/header`)
     const header = await headerResponce.json()
-    const titleResponce = await fetch(`${process.env.API_URL}/titles`)
-    const titles = await titleResponce.json() 
-    const footerResponce = await fetch(`${process.env.API_URL}/footer`)
+    const titleResponce = await fetch(`http://localhost:3000/api/titles`)
+    const titles = await titleResponce.json()
+    const footerResponce = await fetch(`http://localhost:3000/api/footer`)
     const footer = await footerResponce.json()
     return {
       props: { header, titles, footer },
