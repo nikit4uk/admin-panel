@@ -1,0 +1,14 @@
+.header{
+    padding: 10px 0px;
+    nav{
+        display: flex;
+        justify-content: flex-end;
+        gap: 20px;
+        a, .nav-link{
+            font-size: 18px;
+            font-weight: 400;
+            color: #111;
+            text-decoration: none;
+        }
+    }
+}
