@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import styles from '../styles/aPanel.module.scss';
 
-export default function BlockTitlesWrap({titles, blockTitle, objIdx} : {titles:any, blockTitle:string, objIdx:number}) {
+export default function BlockTitlesWrap({titles, blockTitle, objIdx} : {titles:any, blockTitle:any, objIdx:any}) {
     const [BlockTitle, setBlockTitle] = useState('');
     const [BlockSubtitle, setBlockSubtitle] = useState('');
     const [BlockText1, setBlockText1] = useState('');
