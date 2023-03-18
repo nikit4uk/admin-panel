@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import styles from '../styles/aPanel.module.scss';
 
-export default function FooterTitlesWrap({footer}) {
+export default function FooterTitlesWrap({footer} : {footer: any}) {
     const [FooterDate, setFooterDate] = useState('');
     const [FooterRights, setFooterRights] = useState('');
 
@@ -36,8 +36,12 @@ export default function FooterTitlesWrap({footer}) {
         <>
             <h4>Footer</h4>
             <div className={styles.titlesWrap}>
-                <textarea type='text' defaultValue={FooterDate} onChange={(e) => setFooterDate(e.target.value)} />
-                <textarea type='text' defaultValue={FooterRights} onChange={(e) => setFooterRights(e.target.value)} />
+                <textarea defaultValue={FooterDate} onChange={(
+                        ev: React.ChangeEvent<HTMLTextAreaElement>,
+                    ): void => setFooterDate(ev.target.value)} />
+                <textarea defaultValue={FooterRights} onChange={(
+                        ev: React.ChangeEvent<HTMLTextAreaElement>,
+                    ): void => setFooterRights(ev.target.value)} />
             </div>
             <a className='btn' onClick={saveFooter}>Submit</a>
         </>

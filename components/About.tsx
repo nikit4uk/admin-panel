@@ -1,6 +1,6 @@
 import styles from '../styles/About.module.scss';
 
-export default function About({titles}) {
+export default function About({titles} : {titles: any}) {
     return (
         <section className={styles.about}>
             <div className={`${styles.container} container`} >

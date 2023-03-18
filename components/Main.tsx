@@ -1,6 +1,6 @@
 import styles from '../styles/Main.module.scss';
 
-export default function Main({titles}) {
+export default function Main({titles} : {titles: any}) {
     return (
         <section className={styles.main}>
             <div className={`${styles.container} container`}>

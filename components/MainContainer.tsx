@@ -4,7 +4,7 @@ import Header from './Header';
 import styles from '@/styles/Main.module.scss';
 import Footer from './Footer';
 
-const MainContainer = ({ children, title, headerTitles, footerTitles }) => {
+const MainContainer = ({ children, title, headerTitles, footerTitles } : {children: any, title: any, headerTitles: any, footerTitles: any}) => {
     const [loading, isLoading] = useState(true);
 
     if(!loading) {

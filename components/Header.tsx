@@ -4,7 +4,7 @@ import LogInBtn from './logIn';
 import { useSession, signIn } from "next-auth/react"
 
 
-export default function Header({headerTitles}) {
+export default function Header({headerTitles} : {headerTitles: any}) {
     const { data: session } = useSession()
     return(
         <header className={styles.header}>

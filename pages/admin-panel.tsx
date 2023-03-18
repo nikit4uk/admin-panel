@@ -7,7 +7,7 @@ import FooterTitlesWrap from '@/components/AP-footerTitlesWrap';
 import { useSession } from "next-auth/react"
 
 
-export default function Login({ header, titles, footer }) {
+export default function Login({ header, titles, footer } : {header: any, titles: any, footer: any}) {
     const { data: session } = useSession()
     header = header.header;
     titles = titles.titles;

@@ -1,6 +1,6 @@
 import styles from '@/styles/Footer.module.scss';
 
-export default function Footer({footerTitles}) {
+export default function Footer({footerTitles} : {footerTitles: any}) {
     return(
         <footer className={styles.footer}>
             <div className='container'>

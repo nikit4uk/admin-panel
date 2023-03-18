@@ -2,7 +2,7 @@ import MainContainer from '@/components/MainContainer'
 import Main from '@/components/Main'
 import About from '@/components/About';
 
-export default function Home({ header, titles, footer }) {
+export default function Home({ header, titles, footer } : {header:any, titles:any, footer:any}) {
   header = header.header;
   titles = titles.titles;
   footer = footer.footer;

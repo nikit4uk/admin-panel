@@ -57,11 +57,21 @@ export default function BlockTitlesWrap({titles, blockTitle, objIdx} : {titles:a
         <>
             <h4>{blockTitle}</h4>
             <div className={styles.titlesWrap}>
-                <textarea type='text' defaultValue={BlockTitle} onChange={(e) => setBlockTitle(e.target.value)} />
-                <textarea type='text' defaultValue={BlockSubtitle} onChange={(e) => setBlockSubtitle(e.target.value)} />
-                <textarea type='text' defaultValue={BlockText1} onChange={(e) => setBlockText1(e.target.value)} />
-                <textarea type='text' defaultValue={BlockText2} onChange={(e) => setBlockText2(e.target.value)} />
-                <textarea type='text' defaultValue={BlockBtn} onChange={(e) => setBlockBtn(e.target.value)} />
+                <textarea defaultValue={BlockTitle} onChange={(
+                        ev: React.ChangeEvent<HTMLTextAreaElement>,
+                    ): void => setBlockTitle(ev.target.value)} />
+                <textarea defaultValue={BlockSubtitle} onChange={(
+                        ev: React.ChangeEvent<HTMLTextAreaElement>,
+                    ): void => setBlockSubtitle(ev.target.value)} />
+                <textarea defaultValue={BlockText1} onChange={(
+                        ev: React.ChangeEvent<HTMLTextAreaElement>,
+                    ): void => setBlockText1(ev.target.value)} />
+                <textarea defaultValue={BlockText2} onChange={(
+                        ev: React.ChangeEvent<HTMLTextAreaElement>,
+                    ): void => setBlockText2(ev.target.value)} />
+                <textarea defaultValue={BlockBtn} onChange={(
+                        ev: React.ChangeEvent<HTMLTextAreaElement>,
+                    ): void => setBlockBtn(ev.target.value)} />
             </div>
             <a className='btn' onClick={() => saveBlock(blockTitle)}>Submit</a>
         </>

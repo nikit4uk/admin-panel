@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import styles from '../styles/aPanel.module.scss';
 
-export default function HeaderTitlesWrap({header}) {
+export default function HeaderTitlesWrap({header} : {header: any}) {
     const [MainPage, setMainPage] = useState('');
     const [LoginPage, setLoginPage] = useState('');
     const [AdminPanelPage, setAdminPanelPage] = useState('');
@@ -41,9 +41,15 @@ export default function HeaderTitlesWrap({header}) {
         <>
             <h4>Header</h4>
             <div className={styles.titlesWrap}>
-                <textarea type='text' defaultValue={MainPage} onChange={(e) => setMainPage(e.target.value)} />
-                <textarea type='text' defaultValue={LoginPage} onChange={(e) => setLoginPage(e.target.value)} />
-                <textarea type='text' defaultValue={AdminPanelPage} onChange={(e) => setAdminPanelPage(e.target.value)} />
+                <textarea defaultValue={MainPage} onChange={(
+                        ev: React.ChangeEvent<HTMLTextAreaElement>,
+                    ): void => setMainPage(ev.target.value)} />
+                <textarea defaultValue={LoginPage} onChange={(
+                        ev: React.ChangeEvent<HTMLTextAreaElement>,
+                    ): void => setLoginPage(ev.target.value)} />
+                <textarea defaultValue={AdminPanelPage} onChange={(
+                        ev: React.ChangeEvent<HTMLTextAreaElement>,
+                    ): void => setAdminPanelPage(ev.target.value)} />
             </div>
             <a className='btn' onClick={saveHeader}>Submit</a>
         </>
