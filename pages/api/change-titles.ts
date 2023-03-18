@@ -18,19 +18,32 @@
 
 import { NextApiRequest, NextApiResponse } from 'next';
 import { connectToDatabase } from '@/lib/mongodb';
-import { UpdateResult } from 'mongodb';
+
+interface UpdateResult {
+    matchedCount: number;
+    modifiedCount: number;
+    upsertedCount?: number;
+    upsertedId?: {
+        _id: string;
+    };
+}
 
 export default async function handler(
     req: NextApiRequest,
-    res: NextApiResponse
+    res: NextApiResponse<UpdateResult>
 ) {
     const { collection, filter } = req.query;
     const body = JSON.parse(req.body);
 
+    if (typeof collection !== 'string' || typeof filter !== 'string') {
+        throw new Error('Invalid request');
+    }
+
     const { db } = await connectToDatabase();
-    const result: UpdateResult = await db.collection(collection).updateOne(
+    const result = await db.collection(collection).updateOne(
         JSON.parse(filter),
         { $set: body }
     );
-    res.status(200).json({ result });
+
+    res.status(200).json({result});
 }
