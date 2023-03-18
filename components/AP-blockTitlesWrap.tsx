@@ -30,7 +30,7 @@ export default function BlockTitlesWrap({titles, blockTitle, objIdx} : {titles:a
         }
     },[])
 
-    const saveBlock = (blockTitle) => {
+    const saveBlock = (blockTitle:any) => {
         const collection = "Titles";
         const filter = { block: blockTitle };
         const filterStr = encodeURIComponent(JSON.stringify(filter));
