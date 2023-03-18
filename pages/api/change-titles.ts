@@ -18,14 +18,15 @@
 
 import { NextApiRequest, NextApiResponse } from 'next';
 import { connectToDatabase } from '@/lib/mongodb';
+import { ObjectId } from 'mongodb';
 
 interface UpdateResult {
     matchedCount: number;
     modifiedCount: number;
     upsertedCount?: number;
     upsertedId?: {
-        _id: string;
-    };
+        _id: ObjectId;
+    } | ObjectId;
 }
 
 export default async function handler(
@@ -45,5 +46,5 @@ export default async function handler(
         { $set: body }
     );
 
-    res.status(200).json({result});
+    res.status(200).json(result);
 }
